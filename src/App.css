@@ -1,9 +1,16 @@
+body{
+  -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 4vmin;
   pointer-events: none;
 }
 
@@ -36,3 +43,103 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* 
+
+*/
+
+
+.black-nav{
+  background: black;
+  width: 100%;
+  display: flex;
+  color: #fff;
+  padding: 20px;
+  font-weight:600;
+  font-size:20px;
+  box-sizing: border-box;
+}
+
+.list{
+  position: relative;
+  text-align: left;
+  padding: 0 30px;
+  margin-bottom:20px;
+}
+
+.list::before{
+  content: "";
+  background:  url(./logo.svg) no-repeat 0px 0px;
+  background-size: 35px 35px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  animation: App-logo-spin infinite 20s linear;
+  pointer-events: none;
+}
+
+.list > p{
+  color: #cccccc;
+}
+
+.list img{
+  width: 100%;
+}
+
+.section01{
+  text-align: left;
+  padding: 30px;
+  font-size:2.5rem;
+}
+
+/* 텍스트가 없었다가 애니메이션으로 올라오게 됨 */
+.section01 .content .comment p{
+  word-break: keep-all;
+  font-weight: 200;
+  opacity: 0;
+  animation: BottomToTop 0.6s ease-in-out 0.3s 1 normal forwards;
+}
+/* span 굵은 글씨 */
+.section01 .content .comment p span{
+  font-weight: bold;
+}
+
+/* 텍스트 애니메이션 올라오는 속도 ( 1번째 줄부터 마지막줄까지 ) */
+.section01 .content .comment p:nth-child(1){
+  animation-delay: 0.45s;
+}
+.section01 .content .comment p:nth-child(2){
+  animation-delay: 0.75s;
+}
+.section01 .content .comment p:nth-child(3){
+  animation-delay: 0.95s;
+}
+
+/* 텍스트 애니메이션 키프레임 */
+    @keyframes BottomToTop {
+        0% {
+            transform: translate3d(0, 70px, 0);
+            opacity: 0
+        }
+        100% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            opacity: 1
+        }
+    }
+
+    
+
+
+    .view{
+      display: none;
+    }
+
+    .show{
+      display: block;
+      transition: 1s;
+    }
+
